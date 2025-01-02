@@ -21,7 +21,7 @@ document.getElementById('ar-button').addEventListener('click', () => {
         return;
     }
 
-    if (arContainer.innerHTML === '') {
+    if (!arContainer.querySelector('a-scene')) {
         // Dynamically create AR scene
         arContainer.innerHTML = `
             <a-scene embedded arjs>
@@ -34,7 +34,10 @@ document.getElementById('ar-button').addEventListener('click', () => {
 
         // Explicitly request camera access
         navigator.mediaDevices.getUserMedia({ video: true })
-            .then(() => console.log("Camera access granted."))
+            .then(() => {
+                console.log("Camera access granted.");
+                alert("AR mode activated. Move your device to scan the marker.");
+            })
             .catch(err => {
                 console.error("Camera access denied:", err);
                 alert("Unable to access the camera. Please check your browser settings.");
@@ -43,5 +46,6 @@ document.getElementById('ar-button').addEventListener('click', () => {
         // Remove AR scene
         arContainer.innerHTML = '';
         mapDiv.style.display = 'block';
+        alert("Exiting AR mode.");
     }
 });
