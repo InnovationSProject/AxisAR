@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>AR Navigation</title>
+    <meta name="description" content="AR Navigation App" />
+    <link rel="stylesheet" href="/src/styles.css">
+  </head>
+  <body>
+    <div id="map-view" class="view active">
+      <div id="map"></div>
+      <div class="controls">
+        <button id="location-btn" class="btn">My Location</button>
+        <button id="start-nav-btn" class="btn primary" style="display: none;">Start AR Navigation</button>
+      </div>
+    </div>
+    <div id="ar-view" class="view">
+      <video id="camera-feed" autoplay playsinline></video>
+      <div id="ar-overlay"></div>
+      <button id="back-btn" class="btn">Back to Map</button>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM-B1GQig523wQhos4zv3lJY3N1wujM5A"></script>
+    <script src="/src/main.js"></script>
+  </body>
+</html>
